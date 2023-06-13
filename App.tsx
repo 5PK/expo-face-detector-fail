@@ -42,14 +42,14 @@ export default function App() {
       mode: FaceDetector.FaceDetectorMode.accurate,
     });
     console.log('faces', faces.faces.length)
-    if (faces.faces.length > 0 && faces.faces[0].smilingProbability > 0.25) {
+    if (faces.faces.length > 0) {
       setImage(result.assets[0].uri);
     } else {
       Alert.alert(
         'Invalid Picture',
-        'Please ensure the picture is of yourself only, and that you are smiling.',
+        'No face :(',
         [{ text: 'OK', onPress: () => console.log('OK Pressed') }],
-        { cancelable: false }
+        { cancelable: true }
       );
     }
   };
